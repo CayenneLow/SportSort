@@ -1,0 +1,5 @@
+SECRET_KEY = 'LoL'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///databases/users.db'
+
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from "_formhelpers.html" import render_field %}
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+	</head>
+	<body>
+            {% block body %}
+            <form method="POST" action="/create">
+                {{ form.csrf_token }}
+                {{ render_field(form.sport) }}
+                {{ render_field(form.starttime) }}
+                {{ render_field(form.endtime) }}
+                {{ render_field(form.date) }}
+                {{ render_field(form.place) }}
+                {{ render_field(form.n_ppl) }}
+                <br>
+                <input type="submit" value="Submit">
+            </form>        
+            {% endblock %}
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+            <title>{{ title }} - SportSort</title>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+	</head>
+	<body>
+            <b> Menubar: </b>
+            <a href='/index'> Home </a> &nbsp
+            <a href='/register'> Register </a> &nbsp
+            <a href='/create'> Create Event </a>
+            <a href='/logout'> Logout </a>
+            <hr>
+	    {% block body %}
+            {% endblock %}
+	</body>
+</html>
