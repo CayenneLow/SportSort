@@ -15,7 +15,7 @@ def index():
         if user:
             if user.password == form.password.data:
                 session['user'] = str(user.id)
-                return 'Login Successful' + ' ' + user.firstname
+                return redirect('/dashboard')
             else:
                 flash('Invalid login credentials')
                 redirect('/index')
@@ -55,6 +55,11 @@ def create():
         flash('Event successfully created by '+ new_event.eventOwner.firstname)
         return redirect('/index')
     return render_template('create.html', title='Create', form=form)
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    events = Events.query.order_by(Events.id.desc()).all()
+    return render_template('dashboard.html', title='Dashboard', events=events)
 
 @app.route('/logout')
 def logout():
