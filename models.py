@@ -16,4 +16,4 @@ class Events(db.Model):
     date = db.Column(db.Date)
     place = db.Column(db.String(30))
     n_ppl = db.Column(db.String(40))
-    creator = db.Column(db.String(40), db.ForeignKey("users.firstname"))
+    eventOwner_id = db.Column(db.String(40), db.ForeignKey("users.id"))
